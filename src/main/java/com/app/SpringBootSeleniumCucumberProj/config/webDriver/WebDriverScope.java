@@ -9,7 +9,6 @@ import java.util.Objects;
 
 public class WebDriverScope extends SimpleThreadScope {
 
-
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
         Object o = super.get(name, objectFactory);
