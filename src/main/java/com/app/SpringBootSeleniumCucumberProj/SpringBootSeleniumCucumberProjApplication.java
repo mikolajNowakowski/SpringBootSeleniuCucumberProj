@@ -1,13 +1,13 @@
-package com.app.SpringBootSlenieumCucumberProj;
+package com.app.SpringBootSeleniumCucumberProj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootSlenieumCucumberProjApplication {
+public class SpringBootSeleniumCucumberProjApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootSlenieumCucumberProjApplication.class, args);
+		SpringApplication.run(SpringBootSeleniumCucumberProjApplication.class, args);
 	}
 
 }
