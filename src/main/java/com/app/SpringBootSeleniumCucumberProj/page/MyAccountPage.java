@@ -22,12 +22,11 @@ public class MyAccountPage extends BasePage {
     }
 
     public boolean hasSpecifiedName(String userName) {
-        System.out.println(loggedUserName.getAttribute("innerText"));
         return userName.equals(loggedUserName.getAttribute("innerText"));
     }
 
     @Override
     public boolean isAt() {
-        return wait.until((d) -> Integer.parseInt(storeLogo.getAttribute("height")) > 0);
+        return wait.until((d) -> Integer.parseInt(storeLogo.getAttribute("height")) > 0 && loggedUserName.isDisplayed());
     }
 }

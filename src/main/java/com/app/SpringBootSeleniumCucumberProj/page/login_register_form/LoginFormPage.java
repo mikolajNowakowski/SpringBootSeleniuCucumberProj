@@ -4,12 +4,17 @@ package com.app.SpringBootSeleniumCucumberProj.page.login_register_form;
 import com.app.SpringBootSeleniumCucumberProj.annotation.Page;
 import com.app.SpringBootSeleniumCucumberProj.page.base.BasePage;
 
+import com.app.SpringBootSeleniumCucumberProj.page.login_register_form.fragments.RegisterLoginErrorComponent;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Page
 public class LoginFormPage extends BasePage {
+    @Autowired
+    RegisterLoginErrorComponent registerLoginErrorComponent;
+
     @FindBy(id = "reg_email")
     private WebElement registrationEmail;
 
@@ -31,7 +36,9 @@ public class LoginFormPage extends BasePage {
     @FindBy(id = "rememberme")
     private WebElement rememberMeCheckbox;
 
-
+    public RegisterLoginErrorComponent getErrorComponent(){
+        return registerLoginErrorComponent;
+    }
 
     public LoginFormPage registerUser(String email, String password) {
         provideRegisterEmail(email);

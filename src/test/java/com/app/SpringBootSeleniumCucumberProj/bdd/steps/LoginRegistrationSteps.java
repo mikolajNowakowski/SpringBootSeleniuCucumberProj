@@ -56,7 +56,15 @@ public class LoginRegistrationSteps {
         loginFormPage.logIn(email, password);
     }
 
-    @Then("I get information that, there's already existing user with that {string}")
-    public void iGetInformationThatThereSAlreadyExistingUserWithThat(String email) {
+    @And("I see only one error message")
+    public void iSeeOnlyOneErrorMessage() {
+        loginFormPage.getErrorComponent().NAlertsAreDisplayed(1);
+    }
+
+    @Then("I get specified error message {string}")
+    public void iGetSpecifiedErrorMessage(String arg0) {
+        Assert.assertEquals(loginFormPage.getErrorComponent().getErrorMessage(), arg0);
     }
 }
+
+
