@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","pretty"},
-        tags = "@alreadyRegisteredError",
+        tags = "@dupa",
         monochrome = true)
 @RunWith(Cucumber.class)
 public class CucumberRunner {
 
-
+// TODO do scenario context for data sharing between steps
 
 }

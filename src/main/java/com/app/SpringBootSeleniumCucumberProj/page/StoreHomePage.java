@@ -41,6 +41,11 @@ public class StoreHomePage extends BasePage {
         return this;
     }
 
+    public StoreHomePage goToShop(){
+        shopButton.click();
+        return this;
+    }
+
     @Override
     public boolean isAt() {
         return wait.until((d) -> Integer.parseInt(storeLogo.getAttribute("height")) > 0);

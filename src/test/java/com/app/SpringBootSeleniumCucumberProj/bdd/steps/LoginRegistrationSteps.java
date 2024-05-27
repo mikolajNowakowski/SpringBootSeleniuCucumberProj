@@ -8,15 +8,12 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 
 public class LoginRegistrationSteps {
-
-
     @LazyAutowired
     private LoginFormPage loginFormPage;
     @LazyAutowired
     private MyAccountPage myAccountPage;
     @LazyAutowired
     private StoreHomePage storeHomePage;
-
 
     @Given("I am on the store home page")
     public void goToHomePage() {

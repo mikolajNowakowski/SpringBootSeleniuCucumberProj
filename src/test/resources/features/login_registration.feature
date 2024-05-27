@@ -15,9 +15,11 @@ Feature: Store login and registration
 
     Examples:
       | email                                        | password                   |
-      | user1342wre34sdfsddwee4344333231@example.com | password197887658756856345 |
-      | use323wwser43ee433441r2@example.com          | password2978345634563445   |
-      | user233wersde65we4344313@example.com         | password3978234523452345   |
+      | user1342wre34sdfswddwee4344333231@example.com | password197887658756856345 |
+      | use323wwser43ee433e441r2@example.com          | password2978345634563445   |
+      | user233wersde65wer4344313@example.com         | password3978234523452345   |
+
+
 
   @alreadyRegisteredError
   Scenario Outline: I want to register twice with the same email
@@ -32,8 +34,8 @@ Feature: Store login and registration
 
     Examples:
       | email                           | password                  | errorMessage                                                             |
-      | flsdjhflkerrsdjf@example.com    | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
-      | flsdjhflerewwksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
-      | flsdjhflwergeksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
-      | flsdjhfwerdfelksdjf@example.com | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
-      | flsdjhfwerhelksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
+      | flsdjhflkerresdjf@example.com    | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
+      | flsdjhflerewewksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
+      | flsdjhflwergreksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
+      | flsdjhfwerdfrelksdjf@example.com | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
+      | flsdjhfwerhrelksdjf@example.com  | passworsdfsdfsdfd1234*&^% | Błąd: Konto z Twoim adresem e-mail jest już zarejestrowane. Zaloguj się. |
