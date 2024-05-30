@@ -1,5 +1,6 @@
-package com.app.SpringBootSeleniumCucumberProj.persistance.data.loader;
+package com.app.SpringBootSeleniumCucumberProj.persistance.data.loader.csv;
 
+import com.app.SpringBootSeleniumCucumberProj.persistance.data.loader.Loader;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Component
-public class CsvDataLoader implements Loader<List<Map<String,String>>>{
+public class CsvDataLoader implements Loader<List<Map<String,String>>> {
     @Override
     public List<Map<String,String>> load(String path) {
         List<Map<String, String>> data = new ArrayList<>();

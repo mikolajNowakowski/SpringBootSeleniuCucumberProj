@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Page
-public class OrderCustomerDetails extends BasePage {
+public class CustomerOrderFormPage extends BasePage {
     @FindBy(xpath = "//img[@class = 'custom-logo']")
     private WebElement logoImg;
 
@@ -63,9 +63,35 @@ public class OrderCustomerDetails extends BasePage {
     private WebElement submitOrderButton;
 
 
-    public OrderCustomerDetails fillCustomerForm(CustomerOrderForm customer){
-
+    public CustomerOrderFormPage fillCustomerForm(CustomerOrderForm customer) {
+        sendKeysIfNotNull(firstName, customer.getFirstName());
+        sendKeysIfNotNull(lastName, customer.getLastName());
+        sendKeysIfNotNull(companyName, customer.getCompanyName());
+        sendKeysIfNotNull(address, customer.getAddress1());
+        sendKeysIfNotNull(addressOptional, customer.getAddress2());
+        sendKeysIfNotNull(postCode, customer.getPostCode());
+        sendKeysIfNotNull(city, customer.getCity());
+        sendKeysIfNotNull(phone, customer.getPhoneNumber());
+        sendKeysIfNotNull(mail, customer.getEmail());
+        sendKeysIfNotNull(additionalComments, customer.getAdditionalComments());
+        checkCheckBoxIfTrue(termsAcceptation,customer.isTermsAcceptation());
+        checkCheckBoxIfTrue(termsAcceptation,customer.isCreateAccount());
         return this;
+    }
+
+    private void checkCheckBoxIfTrue(WebElement webElement, boolean value) {
+        if (!value) {
+            return;
+        }
+        webElement.click();
+    }
+
+
+    private void sendKeysIfNotNull(WebElement element, String message) {
+        if (message == null) {
+            return;
+        }
+        element.sendKeys(message);
     }
 
 
