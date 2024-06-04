@@ -1,14 +1,10 @@
 package com.app.SpringBootSeleniumCucumberProj.bdd.steps.shopping;
 
 import com.app.SpringBootSeleniumCucumberProj.annotation.LazyAutowired;
-import com.app.SpringBootSeleniumCucumberProj.model.CreditCard;
-import com.app.SpringBootSeleniumCucumberProj.model.CustomerOrderForm;
 import com.app.SpringBootSeleniumCucumberProj.page.StoreHomePage;
-import com.app.SpringBootSeleniumCucumberProj.page.shop.CartPage;
-import com.app.SpringBootSeleniumCucumberProj.page.shop.CategoryPage;
-import com.app.SpringBootSeleniumCucumberProj.page.shop.CustomerOrderFormPage;
-import com.app.SpringBootSeleniumCucumberProj.page.shop.ShopPage;
+import com.app.SpringBootSeleniumCucumberProj.page.shop.*;
 import com.app.SpringBootSeleniumCucumberProj.persistance.repositories.feature.shopping.ProductPurchaseRepo;
+import com.app.SpringBootSeleniumCucumberProj.utils.SeleniumHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,9 +22,11 @@ public class ShoppingSteps {
     private CartPage cartPage;
     @LazyAutowired
     private CustomerOrderFormPage customerOrderFormPage;
-
+    @LazyAutowired
+    private OrderConfirmationPage orderConfirmationPage;
     @LazyAutowired
     private ProductPurchaseRepo productPurchaseRepo;
+
 
     @When("I click store button")
     public void iClickStoreButton() {
@@ -80,34 +78,33 @@ public class ShoppingSteps {
 
     @When("I complete customer form with data from csv file at {int} row")
     public void iCompleteCustomerFormWithDataFromCsvFileAtRow(int csvRow) {
-        customerOrderFormPage.fillCustomerForm(productPurchaseRepo.findByIndex(csvRow).getCustomerOrderForm());
+        customerOrderFormPage.fillWholeCustomerForm(productPurchaseRepo.findByIndex(csvRow).getCustomerOrderForm());
     }
+
+    @And("I complete payment details with data from csv file at {int} row")
+    public void iCompletePaymentDetailsWithDataFromCsvFileAtRow(int csvRow) {
+        customerOrderFormPage.fillPaymentDetails(productPurchaseRepo.findByIndex(csvRow).getCreditCard());
+    }
+
 
     @And("Confirm order")
     public void confirmOrder() {
-
+        customerOrderFormPage
+                .acceptTerms()
+                .submitOrder();
     }
 
     @Then("I will get confirmation of my order")
     public void iWillGetConfirmationOfMyOrder() {
-
+        orderConfirmationPage.isAt();
     }
 
 
+    @And("I will see order details from {int}")
+    public void iWillSeeOrderDetailsFromCswRow(int csvRow) {
+        var testData = productPurchaseRepo.findByIndex(csvRow);
 
-
-    @And("I complete payment details with data from csv file at {int} row")
-    public void iCompletePaymentDetailsWithDataFromCsvFileAtRow(int csvRow) {
+        Assert.assertTrue(orderConfirmationPage.anyProductContainsInName(testData.getSportTypeRegion().getRegion()));
+        Assert.assertTrue(orderConfirmationPage.areSpecificNumberOfProductsInSummary(1));
     }
-
-    @And("I add {int} to cart")
-    public void iAddCsvRowToCart(int csvRow) {
-    }
-
-
-    @And("I add specific sport in specific region from <csvRow> row to cart")
-    public void iAddSpecificSportInSpecificRegionFromCsvRowRowToCart() {
-    }
-
-
 }

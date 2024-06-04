@@ -1,10 +1,18 @@
 package com.app.SpringBootSeleniumCucumberProj.page.shop;
 
+import com.app.SpringBootSeleniumCucumberProj.annotation.LazyAutowired;
 import com.app.SpringBootSeleniumCucumberProj.annotation.Page;
+import com.app.SpringBootSeleniumCucumberProj.model.CreditCard;
 import com.app.SpringBootSeleniumCucumberProj.model.CustomerOrderForm;
 import com.app.SpringBootSeleniumCucumberProj.page.base.BasePage;
+import com.app.SpringBootSeleniumCucumberProj.utils.SeleniumHelper;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 @Page
 public class CustomerOrderFormPage extends BasePage {
@@ -20,7 +28,7 @@ public class CustomerOrderFormPage extends BasePage {
     @FindBy(name = "billing_company")
     private WebElement companyName;
 
-    @FindBy(id = "select2-billing_country-container")
+    @FindBy(id = "billing_country")
     private WebElement country;
 
     @FindBy(name = "billing_address_1")
@@ -59,11 +67,17 @@ public class CustomerOrderFormPage extends BasePage {
     @FindBy(name = "terms")
     private WebElement termsAcceptation;
 
-    @FindBy(name = "place_order")
+    @FindBy(id = "place_order")
     private WebElement submitOrderButton;
 
+    @FindBy(xpath = "//iframe[contains(@name,'__privateStripeFrame')]")
+    private List<WebElement> cardDetailsIframes;
 
-    public CustomerOrderFormPage fillCustomerForm(CustomerOrderForm customer) {
+    @LazyAutowired
+    private SeleniumHelper seleniumHelper;
+
+
+    public CustomerOrderFormPage fillWholeCustomerForm(CustomerOrderForm customer) {
         sendKeysIfNotNull(firstName, customer.getFirstName());
         sendKeysIfNotNull(lastName, customer.getLastName());
         sendKeysIfNotNull(companyName, customer.getCompanyName());
@@ -73,10 +87,48 @@ public class CustomerOrderFormPage extends BasePage {
         sendKeysIfNotNull(city, customer.getCity());
         sendKeysIfNotNull(phone, customer.getPhoneNumber());
         sendKeysIfNotNull(mail, customer.getEmail());
+        selectByVisibleText(country, customer.getCountry());
+        checkCheckBoxIfTrue(createAccountCheckbox, customer.isCreateAccount());
         sendKeysIfNotNull(additionalComments, customer.getAdditionalComments());
-        checkCheckBoxIfTrue(termsAcceptation,customer.isTermsAcceptation());
-        checkCheckBoxIfTrue(termsAcceptation,customer.isCreateAccount());
+        checkCheckBoxIfTrue(termsAcceptation, customer.isTermsAcceptation());
+        checkCheckBoxIfTrue(termsAcceptation, customer.isCreateAccount());
         return this;
+    }
+
+    public CustomerOrderFormPage fillPaymentDetails(CreditCard creditCard) {
+
+        if (cardDetailsIframes.size() != 3) {
+            throw new IllegalStateException("Wrong number of iframes in card details section.");
+        }
+
+        sendKeysInAnotherFrame(cardNumber, creditCard.getCardNumber(), cardDetailsIframes.get(0).getAttribute("name"));
+        sendKeysInAnotherFrame(cardExpirationDay, creditCard.getCardExpirationDate(), cardDetailsIframes.get(1).getAttribute("name"));
+        sendKeysInAnotherFrame(cardCvcNumber, creditCard.getCvcNumber(), cardDetailsIframes.get(2).getAttribute("name"));
+        return this;
+    }
+
+    public void sendKeysInAnotherFrame(WebElement element, String message, String iframeName) {
+        driver.switchTo().frame(iframeName);
+        sendKeysIfNotNull(element, message);
+        driver.switchTo().defaultContent();
+    }
+
+    public CustomerOrderFormPage acceptTerms() {
+        termsAcceptation.click();
+        return this;
+    }
+
+
+    public CustomerOrderFormPage submitOrder() {
+        seleniumHelper.scrollToElement(submitOrderButton);
+        submitOrderButton.click();
+        return this;
+    }
+
+
+    private void selectByVisibleText(WebElement element, String text) {
+        var select = new Select(element);
+        select.selectByVisibleText(text);
     }
 
     private void checkCheckBoxIfTrue(WebElement webElement, boolean value) {

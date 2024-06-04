@@ -19,7 +19,7 @@ public class WebDriverWaitConfig {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Value("${wait.timeout:10}")
+    @Value("${wait.timeout:20}")
     private int timeout;
 
     @Bean

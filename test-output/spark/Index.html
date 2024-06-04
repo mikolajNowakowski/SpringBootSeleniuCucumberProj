@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">ToolsQA - Cucumber Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 30, 2024 08:58:05 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 2, 2024 09:59:14 PM</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@productPurchase</a>
+<a class="dropdown-item" href="#">@alreadyRegisteredError</a><a class="dropdown-item" href="#">@registerSuccess</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +90,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Shopping products</p>
+            <p class="name">Store login and registration</p>
             <p class="text-sm">
-              <span>8:58:09 PM</span> / <span>00:00:10:488</span>
+              <span>9:59:19 PM</span> / <span>00:00:19:338</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,10 +100,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Shopping products</h5>
-<span class='badge badge-success'>05.30.2024 8:58:09 PM</span>
-<span class='badge badge-danger'>05.30.2024 8:58:19 PM</span>
-<span class='badge badge-default'>00:00:10:488</span>
+<h5 class="test-status text-pass">Store login and registration</h5>
+<span class='badge badge-success'>06.02.2024 9:59:19 PM</span>
+<span class='badge badge-danger'>06.02.2024 9:59:38 PM</span>
+<span class='badge badge-default'>00:00:19:338</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -115,14 +115,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>I want to buy windsurfing in Egypt without logging in</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>I want to register and then log in with specified credentials</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>I want to buy windsurfing in Egypt without logging in</div>
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>I want to register and then log in with specified credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -132,57 +132,100 @@
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I click store button</span>
+                    <span>When I click on the MyAccount button</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And I click on sport type from csv file at 0 row</span>
+                    <span>Then I am on the login form page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And I add specific sport in specific region from 0 row to cart</span>
+                    <span>When I provide email and password to register from 0 row</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And I go to cart</span>
+                    <span>Then I am successfully logged into my account 0</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Then I will be able to see 0 in my cart</span>
+                    <span>When I log out from my account</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I proceed with shopping</span>
+                    <span>And I log in with the same email and password from 0 row</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Then I will go to order form</span>
+                    <span>Then I am successfully logged into my account 0</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="13"><span class="badge log pass-bg mr-2">Pass</span>I want to register twice with the same email</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="14"><span class="badge log pass-bg mr-2">Pass</span>I want to register twice with the same email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the store home page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I complete customer form with data from csv file at 0 row</span>
+                    <span>When I click on the MyAccount button</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And I complete payment details with data from csv file at 0 row</span>
+                    <span>Then I am on the login form page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And Confirm order</span>
+                    <span>When I provide email and password to register from 10 row</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Then I will get confirmation of my order</span>
+                    <span>Then I am successfully logged into my account 10</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I log out from my account</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I provide email and password to register from 10 row</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I get specified error message from 10 row</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I see only one error message</span>
       <div>
       </div>
                   </div>
@@ -206,7 +249,7 @@
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -215,12 +258,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>2</span>
 </span>
-<p class="name">@productPurchase</p>
+<p class="name">@alreadyRegisteredError</p>
 <p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@productPurchase</h4>
+<h4>@alreadyRegisteredError</h4>
 <span status="pass" class='badge log pass-bg'>2 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -234,21 +277,67 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>20:58:09 PM</td>
+<td>21:59:30 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>I want to buy windsurfing in Egypt without logging in</a>
+<a href="#" class="linked" test-id='1' id='13'>I want to register twice with the same email</a>
 <div class="">
-<span class="badge badge-default">Shopping products.I want to buy windsurfing in Egypt without logging in</span>
+<span class="badge badge-default">Store login and registration.I want to register twice with the same email</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>20:58:09 PM</td>
+<td>21:59:30 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='3'>I want to buy windsurfing in Egypt without logging in</a>
+<a href="#" class="linked" test-id='1' id='14'>I want to register twice with the same email</a>
 <div class="">
-<span class="badge badge-default">Shopping products.I want to buy windsurfing in Egypt without logging in</span>
+<span class="badge badge-default">Store login and registration.I want to register twice with the same email</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+</span>
+<p class="name">@registerSuccess</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@registerSuccess</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:59:19 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>I want to register and then log in with specified credentials</a>
+<div class="">
+<span class="badge badge-default">Store login and registration.I want to register and then log in with specified credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:59:19 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>I want to register and then log in with specified credentials</a>
+<div class="">
+<span class="badge badge-default">Store login and registration.I want to register and then log in with specified credentials</span>
 </div>
 </td>
 </tr>
@@ -269,13 +358,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 30, 2024 08:58:05 PM</h3>
+<h3>Jun 2, 2024 09:59:14 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 30, 2024 08:58:19 PM</h3>
+<h3>Jun 2, 2024 09:59:38 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -326,7 +415,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>1</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>2</b> scenarios passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -346,7 +435,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>12</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>17</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -365,7 +454,7 @@
 </div></div>
 <script>
 var timeline = {
-"Shopping products":10.488
+"Store login and registration":19.338
 };
 </script>
 <div class="row">
@@ -375,7 +464,15 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@productPurchase</td>
+<td>@alreadyRegisteredError</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@registerSuccess</td>
 <td>2</td>
 <td>0</td>
 <td>0</td>
@@ -396,13 +493,13 @@ failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 1,
+passChild: 2,
 failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 12,
+passGrandChild: 17,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
