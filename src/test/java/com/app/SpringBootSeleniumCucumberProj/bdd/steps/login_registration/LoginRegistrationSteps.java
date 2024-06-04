@@ -1,4 +1,4 @@
-package com.app.SpringBootSeleniumCucumberProj.bdd.steps;
+package com.app.SpringBootSeleniumCucumberProj.bdd.steps.login_registration;
 
 import com.app.SpringBootSeleniumCucumberProj.annotation.LazyAutowired;
 import com.app.SpringBootSeleniumCucumberProj.page.login_register_form.LoginFormPage;
@@ -15,15 +15,7 @@ public class LoginRegistrationSteps {
     @LazyAutowired
     private StoreHomePage storeHomePage;
 
-    @Given("I am on the store home page")
-    public void goToHomePage() {
-        storeHomePage.goTo();
-    }
 
-    @When("I click on the MyAccount button")
-    public void goToStore() {
-        storeHomePage.goToLoginForm();
-    }
 
     @Then("I am on the login form page")
     public void isAtLoginForm() {
