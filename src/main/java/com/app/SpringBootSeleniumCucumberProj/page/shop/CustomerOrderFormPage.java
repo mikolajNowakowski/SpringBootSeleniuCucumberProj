@@ -110,6 +110,7 @@ public class CustomerOrderFormPage extends BasePage {
     }
 
     public CustomerOrderFormPage acceptTerms() {
+        seleniumHelper.scrollToElement(termsAcceptation);
         termsAcceptation.click();
         return this;
     }

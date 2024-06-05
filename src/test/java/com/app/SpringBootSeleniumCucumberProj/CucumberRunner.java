@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","pretty"},
-        tags = "@productPurchase",
+        tags = "@addingProductToWishList or @productPurchase",
         monochrome = true)
 @RunWith(Cucumber.class)
 public class CucumberRunner {

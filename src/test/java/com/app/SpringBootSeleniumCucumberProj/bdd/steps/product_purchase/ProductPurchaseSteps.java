@@ -25,7 +25,7 @@ public class ProductPurchaseSteps {
 
 
     @And("I add product in specific {string} to cart")
-    public void iAddToCart(String region, String sportType) {
+    public void iAddToCart(String sportType) {
         categoryPage
                 .addSpecifiedProductToCart(sportType);
     }
